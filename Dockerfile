@@ -14,8 +14,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the application code into the container
 COPY . .
 
-# Load environment variables from .env file
-COPY .env .
-
 # Start the bot
 CMD ["python", "bot.py"]
