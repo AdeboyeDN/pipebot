@@ -1,13 +1,8 @@
-# Use a specific version of Python
-FROM python:3.11.0-slim AS base
+FROM python:3.11.0
 
 # Set environment variables
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
-
-# Create a non-root user to run the application
-RUN useradd --create-home appuser
-USER appuser
 
 # Set the working directory to /app
 WORKDIR /app
@@ -16,22 +11,11 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the application code into the container and build it
+# Copy the application code into the container
 COPY . .
-RUN python setup.py build
 
-# Use a smaller image for the final build stage
-FROM python:3.11.0-slim AS final
-
-# Create a non-root user to run the application
-RUN useradd --create-home appuser
-USER appuser
-
-# Set the working directory to /app
-WORKDIR /app
-
-# Copy the built application code from the previous stage
-COPY --from=base /app .
+# Load environment variables from .env file
+COPY .env .
 
 # Start the bot
 CMD ["python", "bot.py"]
