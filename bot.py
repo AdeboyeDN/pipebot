@@ -18,4 +18,4 @@ async def on_member_join(member):
 
 
 #client.run(os.getenv('BOT_TOKEN'))
-client.run(os.getenv('BOT_NEW_TOKEN'))
+client.run(os.getenv('NEW_TOKEN'))
