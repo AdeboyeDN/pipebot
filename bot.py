@@ -1,7 +1,7 @@
 import os
 import discord
 from dotenv import load_dotenv
-
+SECRET_KEY = "django-insecure-i2(f^4emukw6o$4k0a^14g@&lu#fa+)5yjj@$_r%)fwoac0wlv"
 load_dotenv()  # load environment variables from .env file
 
 intents = discord.Intents.default()
