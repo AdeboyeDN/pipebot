@@ -19,3 +19,4 @@ async def on_member_join(member):
 
 #client.run(os.getenv('BOT_TOKEN'))
 client.run(os.getenv('NEW_TOKEN'))
+SECRET_KEY = "django-insecure-i2(f^4emukw6o$4k0a^14g@&lu#fa+)5yjj@$_r%)fwoac0wlv"
